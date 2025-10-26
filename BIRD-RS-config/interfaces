@@ -1,0 +1,19 @@
+# Location "/etc/network/interfaces"
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# DHCP config for eth0
+#auto eth0
+#iface eth0 inet dhcp
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 10.0.0.100
+	netmask 255.255.255.0
