@@ -1,5 +1,5 @@
 # BIRD 2.14 Route Server Internet Exchange Point
-This documentation explains how an Linux Debian with BIRD 2.14 acting as a Route Server (RS) can simplify peering at an Internet Exchange Point (IXP).
+This document explains how a Debian Linux system running BIRD 2.14 can be used as a Route Server (RS) to simplify peering at an Internet Exchange Point (IXP). The topology is reused from a previous FRR RS project and I just replace FRR with BIRD as a Route Server.
 
 ---
 
@@ -80,10 +80,20 @@ Include BGP status and routing tables from the RS and members.
 ![Project topology](images/Member-4-BGP-Status.png)
 
 ---
+## Issue — Member-3 (Cisco) BGP: "Received: Malformed AS_PATH"
+
+Observed behaviour
+- When the Route Server (RS) has the `rs client` option enabled, Member‑3 (Cisco) fails to establish the BGP session. The peer log shows: "Received: Malformed AS_PATH".
+- When `rs client` is disabled on the RS, the Cisco session comes up normally.
+- With the session up, the route display shows the RS ASN in the AS_PATH. This differs from a previous FRR-based RS deployment where the RS ASN was not visible in member routes.
+
+Screenshots
+- Disable RS Client (session up, routes shown): ![Disable RS Client](images/disable-rs-client.png)
+- Enable RS Client (session fails with AS_PATH error): ![Enable RS Client](images/Member-3-Cisco-error-if-rs-client-enable.png)
 
 ## Devices
 
-- **RS**: FRR version 8.2.2 Debian Linux debian 6.5.0-5-cloud-amd64
+- **RS**: BIRD version 2.14 in Debian Linux debian 6.5.0-5-cloud-amd64
 - **Member-1-vMX**: vMX version 14.1R1.10
 - **Member-2-NE40E**: NE40E version V800R011C00SPC607B607
 - **Member-3-cisco**: Cisco IOS 3725 version 12.4
@@ -95,15 +105,10 @@ Include BGP status and routing tables from the RS and members.
 ## Links
 
 Origin : 
-<https://github.com/andre4freelance/FRR-RS-IXP>
+<https://github.com/andre4freelance/BIRD-v2-RS-IXP>
 
 Linkedin post : 
 <https://www.linkedin.com/posts/link-andre-bastian_frr-bgp-internetexchange-activity-7383177212331667456-tyBL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD73JlUBty-p-mBfMEW0-O4j0sv-e_PRQvc>
 
 Reference : 
-<https://www.peeringtoolbox.net/ixp-route-server?utm_source=chatgpt.com>
-<https://docs.soodar.ir/rel/21.11/user/routeserver.html>
-
-
-
-
+<https://af-ix.org/resources/2015/05/template-bird-route-server-configuration>
