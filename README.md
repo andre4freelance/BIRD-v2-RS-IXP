@@ -108,7 +108,7 @@ Origin :
 <https://github.com/andre4freelance/BIRD-v2-RS-IXP>
 
 Linkedin post : 
-<https://www.linkedin.com/posts/link-andre-bastian_frr-bgp-internetexchange-activity-7383177212331667456-tyBL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD73JlUBty-p-mBfMEW0-O4j0sv-e_PRQvc>
+<https://www.linkedin.com/posts/link-andre-bastian_bgp-ixp-bird-activity-7388229653834063872-NVYx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD73JlUBty-p-mBfMEW0-O4j0sv-e_PRQvc>
 
 Reference : 
 <https://af-ix.org/resources/2015/05/template-bird-route-server-configuration>
